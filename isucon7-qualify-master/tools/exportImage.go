@@ -21,14 +21,14 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	url := "..//webapp/public/image/"
+	url := "./webapp/public/icons/"
 	image := []Image{}
 	errr := db.Select(&image, "SELECT * FROM image")
 	if errr != nil {
 	}
 	fmt.Print(len(image))
 	for i := 0; i < len(image); i++ {
-		file, _ := os.Create((url + image[i].Name)
+		file, _ := os.Create(url + image[i].Name)
 		file.Write(image[i].Data)
 	}
 }
