@@ -662,7 +662,7 @@ func postProfile(c echo.Context) error {
 	}
 
 	if avatarName != "" && len(avatarData) > 0 {
-		file, _ := os.Create("/home/isucon/isubata/webapp/public/icons/avatarName")
+		file, _ := os.Create("/home/isucon/isubata/webapp/public/icons/" + avatarName)
 		file.Write(avatarData)
 
 		_, err = db.Exec("UPDATE user SET avatar_icon = ? WHERE id = ?", avatarName, self.ID)
